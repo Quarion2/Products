@@ -1,0 +1,111 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#searchbutton").click(function () {
+                $("#productsTable").empty();
+                let searchedPhrase = $("#searchIn").val();
+                search(searchedPhrase)
+            })
+            function search(searchIn) {
+                $.get("http://localhost:5000/Products/getAllProduct", { searchedPhrase:searchIn },
+                    function (data, status) {
+                    console.log(data);
+                    for (let i = 0; i < data.length; i++) {
+                        let row = document.createElement("tr");
+
+                        let prodIdCell = document.createElement("td");
+                        prodIdCell.innerText = data[i].productID;
+                        row.appendChild(prodIdCell);
+
+                        let prodNameCell = document.createElement("td");
+                        prodNameCell.innerText = data[i].productName;
+                        row.appendChild(prodNameCell);
+
+                        let supIdCell = document.createElement("td");
+                        supIdCell.innerText = data[i].supplierID;
+                        row.appendChild(supIdCell);
+
+                        let catIdCell = document.createElement("td");
+                        catIdCell.innerText = data[i].categoryID;
+                        row.appendChild(catIdCell);
+
+                        let unitPriceCell = document.createElement("td");
+                        unitPriceCell.innerText = data[i].unitPrice;
+                        row.appendChild(unitPriceCell);
+
+                        let discCell = document.createElement("td");
+                        discCell.innerText = data[i].discounted;
+                        row.appendChild(discCell);
+
+                        document.getElementById("productsTable").appendChild(row);
+
+                    }
+
+                })
+
+            }
+            $.get("http://localhost:5000/Products/getAllProduct", function (data, status) {
+                console.log(data);
+                for (let i = 0; i < data.length; i++)
+                {
+                    let row = document.createElement("tr");
+
+                    let prodIdCell = document.createElement("td");
+                    prodIdCell.innerText = data[i].productID;
+                    row.appendChild(prodIdCell);
+
+                    let prodNameCell = document.createElement("td");
+                    prodNameCell.innerText = data[i].productName;
+                    row.appendChild(prodNameCell);
+
+                    let supIdCell = document.createElement("td");
+                    supIdCell.innerText = data[i].supplierID;
+                    row.appendChild(supIdCell);
+
+                    let catIdCell = document.createElement("td");
+                    catIdCell.innerText = data[i].categoryID;
+                    row.appendChild(catIdCell);
+
+                    let unitPriceCell = document.createElement("td");
+                    unitPriceCell.innerText = data[i].unitPrice;
+                    row.appendChild(unitPriceCell);
+
+                    let discCell = document.createElement("td");
+                    discCell.innerText = data[i].discounted;
+                    row.appendChild(discCell);
+
+                    document.getElementById("productsTable").appendChild(row);
+
+                }
+
+                })
+
+            })
+        
+        
+    </script>
+</head>
+<body>
+    <div>
+        <div style="margin:5px">
+            <input type="text" id="searchIn",  placeholder="Search...." />
+            <button id="searchbutton">Szukaj</button>
+        </div>
+        <table id=productsTable border="1" style="width:80%">
+            <tr>
+                <td>productid</td>
+                <td>productname</td>
+                <td>supplierid</td>
+                <td>categoryid</td>
+                <td>unitprice</td>
+                <td>discontinued</td>
+            </tr>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+</html>

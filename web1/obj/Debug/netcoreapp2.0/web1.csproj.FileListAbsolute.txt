@@ -1,0 +1,10 @@
+C:\web1\bin\Debug\netcoreapp2.0\web1.deps.json
+C:\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.json
+C:\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.dev.json
+C:\web1\bin\Debug\netcoreapp2.0\web1.dll
+C:\web1\bin\Debug\netcoreapp2.0\web1.pdb
+C:\web1\obj\Debug\netcoreapp2.0\web1.csproj.CoreCompileInputs.cache
+C:\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfoInputs.cache
+C:\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfo.cs
+C:\web1\obj\Debug\netcoreapp2.0\web1.dll
+C:\web1\obj\Debug\netcoreapp2.0\web1.pdb
